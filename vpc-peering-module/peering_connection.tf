@@ -35,8 +35,7 @@ resource "aws_route" "owner" {
 
 resource "aws_route" "accepter" {
   provider                  = aws.accepter
-  count                     = length(data.aws_route_tables.accepter.ids)
-  route_table_id            = tolist(data.aws_route_tables.accepter.ids)[count.index]
+  route_table_id            = aws_vpc.accepter.default_route_table_id
   destination_cidr_block    = aws_vpc.owner.cidr_block
   vpc_peering_connection_id = aws_vpc_peering_connection.peer.id
 } 
