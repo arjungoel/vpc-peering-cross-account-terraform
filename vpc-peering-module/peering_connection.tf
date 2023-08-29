@@ -9,7 +9,7 @@ resource "aws_vpc_peering_connection" "peer" {
 
   tags = {
     Side = "Owner"
-    Name = "${var.default_tags.project_name}-owner-to-peer"
+    Name = "${var.default_tags.project_name}-peer-to-accepter"
   }
 }
 
@@ -22,6 +22,21 @@ resource "aws_vpc_peering_connection_accepter" "peer" {
 
   tags = {
     Side = "Accepter"
-    Name = "${var.default_tags.project_name}-accepter-to-peer"
+    Name = "${var.default_tags.project_name}-peer-to-owner"
   }
 }
+
+resource "aws_route" "owner" {
+  provider                  = aws.owner
+  route_table_id            = aws_route_table.public_rt.id
+  destination_cidr_block    = aws_vpc.accepter.cidr_block
+  vpc_peering_connection_id = aws_vpc_peering_connection.peer.id
+}
+
+resource "aws_route" "accepter" {
+  provider                  = aws.accepter
+  count                     = length(data.aws_route_tables.accepter.ids)
+  route_table_id            = tolist(data.aws_route_tables.accepter.ids)[count.index]
+  destination_cidr_block    = aws_vpc.owner.cidr_block
+  vpc_peering_connection_id = aws_vpc_peering_connection.peer.id
+} 
