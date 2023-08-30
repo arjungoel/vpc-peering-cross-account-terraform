@@ -1,8 +1,4 @@
 region      = "us-east-1"
-access_key  = "xxxxxxxxxxxxxxxxxxx"
-secret_key  = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-access_key2 = "xxxxxxxxxxxxxxxxxxxxxxxxxxx"
-secret_key2 = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 cidr_block  = "10.0.0.0/16"
 cidr_block2 = "172.31.0.0/16"
 default_tags = {
@@ -10,5 +6,9 @@ default_tags = {
   secondary_owner = "Arjun Goel"
   project_name    = "vpc-peering-cross-account"
 }
-public_subnet_count           = 2
-private_subnet_count          = 2
+public_subnet_count  = 2
+private_subnet_count = 2
+owner_account_id     = "699972259011"
+accepter_account_id  = "436124367077"
+profile_accepter     = "dynamodb-user3"
+role_name            = "vpc-peering-role"
