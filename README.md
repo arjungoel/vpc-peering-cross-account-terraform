@@ -4,7 +4,7 @@
 1. VPC in Owner Account
 2. VPC in Accepter Account
 
-**Owner Account VPC**:
+**Owner Account VPC**: <br>
 3. 2 Public & Private Subnet(s)
 4. IGW
 5. NAT GW
