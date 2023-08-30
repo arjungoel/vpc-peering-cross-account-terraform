@@ -3,17 +3,12 @@
 **Resources to be created**:
 1. VPC in Owner Account
 2. VPC in Accepter Account
-
-**Owner Account VPC**: <br>
-3. 2 Public & Private Subnet(s) <br>
-4. IGW <br>
-5. NAT GW <br>
-6. Public RT & Private RT <br>
-7. Public & Private Route(s) <br>
-
-**Accepter Account VPC**: <br>
+3. 2 Public & Private Subnet(s) 
+4. IGW
+5. NAT GW
+6. Public RT & Private RT
+7. Public & Private Route(s)
 8. Default Main RT
-
 9. VPC Peering Connections for Owner & Accepter
 
 
