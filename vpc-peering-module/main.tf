@@ -9,20 +9,24 @@ terraform {
 
 provider "aws" {
   region     = var.region
-  access_key = var.access_key
-  secret_key = var.secret_key
+  assume_role {
+    role_arn = "arn:aws:iam::${var.owner_account_id}:role/${var.role_name}"
+  }
 }
 
 provider "aws" {
   region     = var.region
-  access_key = var.access_key
-  secret_key = var.secret_key
   alias      = "owner"
+  assume_role {
+    role_arn = "arn:aws:iam::${var.owner_account_id}:role/${var.role_name}"
+  }
 }
 
 provider "aws" {
   region     = var.region
-  access_key = var.access_key2
-  secret_key = var.secret_key2
   alias      = "accepter"
+  profile = var.profile_accepter
+  assume_role {
+    role_arn = "arn:aws:iam::${var.accepter_account_id}:role/${var.role_name}"
+  }
 }

@@ -18,3 +18,6 @@ In this code, I am **not** assuming an `IAM role` and **using** `IAM user`. So t
 
 - https://skundunotes.com/2021/08/24/vpc-peering-using-terraform-across-separate-aws-accounts/
 - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc_peering_connection_options.html
+
+
+**NOTE**: For AWS profile names, you need to check the ~/.aws/credentials file.
